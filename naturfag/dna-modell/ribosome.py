@@ -7,7 +7,7 @@ import random
 MAX_LENGTH = 20
 
 # --- Mutering instillinger ---
-MUTATION_RATE_PER_CODON = 0.5  # 1.0 = 100%, 0.5 = 50% - sjanse per kodon etter startkodon
+MUTATION_RATE_PER_CODON = 0.2  # 1.0 = 100%, 0.5 = 50% - sjanse per kodon etter startkodon
 SHOW_MUTATION_LOG = True        # print når mutering skjer?
 
 
@@ -72,7 +72,7 @@ def ribosome():
             print("Ugyldig kodon! Bruk 3 bokstaver fra mRNA alfabetet (A, U, C, G)")
             continue
 
-        # apply mutation only after translation has started
+        # legg til mutasjon etter at translasjon har startet
         if started:
             codon, mutated, log = maybe_mutate_codon(codon, MUTATION_RATE_PER_CODON)
             if mutated and SHOW_MUTATION_LOG:
